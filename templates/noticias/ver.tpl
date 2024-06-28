@@ -15,7 +15,7 @@
         </div>
 
         <div class="btn borrar">
-            <a href="index.php?action=borrar&id={$noticia.ID_NOTICIA}"><i class="fa-solid fa-trash" style="color: #feffff;"></i></i></i></a>
+            <a href="index.php?action=borrar&id={$noticia.ID_NOTICIA}"><i class="fa-solid fa-eye-slash" style="color: #feffff;"></i></i></i></a>
         </div>
     </div>
 </div>

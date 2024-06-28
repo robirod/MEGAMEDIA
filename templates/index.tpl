@@ -8,7 +8,7 @@
                 <ul>
                     <li><a href="index.php?action=inicio"><i class="fa-solid fa-house"></i> </a></li>
                     <li><a href="index.php?action=editar"> <i class="fa-solid fa-file-circle-plus"></i> </a></li>
-                    <li><a href="#"><i class="fa-solid fa-chart-simple"></i> </a></li>
+                    <li><a href="index.php?action=analytic"><i class="fa-solid fa-chart-simple"></i> </a></li>
                 </ul>
             </div>
             <div class="endnavbar">

@@ -27,8 +27,8 @@ if (!isset($_SESSION['user_id']) && $action !== 'login') {
         header('Location: index.php?action=login');
         exit;
     }
-        
-    
+
+
 }
 
 
@@ -47,7 +47,7 @@ switch ($action) {
     case 'public_ver':
         if ($id) {
             $noticia = obtenerNoticia_publica($conexionBD, $id);
-           
+
             if ($noticia) {
                 $smarty->assign('noticia', $noticia);
                 $smarty->assign('titulo_navegador', $noticia['TITULO']);
@@ -63,7 +63,7 @@ switch ($action) {
             $smarty->assign('noticia', 'Esta noticia no existe ');
             $smarty->assign('content_template', 'noticias/error.tpl');
         }
-        
+
         break;
 
 
@@ -82,7 +82,7 @@ switch ($action) {
     case 'ver':
         if ($id) {
             $noticia = obtenerNoticia($conexionBD, $id);
-           
+
             if ($noticia) {
 
                 $smarty->assign('noticia', $noticia);
@@ -124,10 +124,12 @@ switch ($action) {
             'cuerpo' => $_POST['cuerpo'],
             'estado' => $_POST['estado']
         ];
+
         nueva_noticia($conexionBD, $data);
+
         header('Location: index.php?action=inicio');
-        //exit;
-        break;
+        exit;
+    //break;
 
 
     case 'borrar':
@@ -142,16 +144,29 @@ switch ($action) {
 
 
 
+
+    case 'analytic':
+       
+        $smarty->assign('titulo_navegador', 'En mantención');
+        $smarty->assign('noticia', 'Analytics esta en mantención ');
+        $smarty->assign('content_template', 'noticias/error.tpl');
+
+        $smarty->display('header.tpl');
+        $smarty->display('index.tpl');
+
+        break;
+
+
     case 'login':
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $usuario = $_POST['user'];
             $contraseña = $_POST['pass'];
-           $user= verificar_usuario($conexionBD, $usuario, $contraseña);
-         
+            $user = verificar_usuario($conexionBD, $usuario, $contraseña);
+
             if ($user) {
                 $_SESSION['user_id'] = $user['ID_USUARIO'];
 
-                
+
                 header('Location: index.php?action=inicio');
                 exit;
             } else {
@@ -172,7 +187,7 @@ switch ($action) {
     default:
 
         $smarty->assign('content_template', 'templates/noticias/inicio.tpl');
-       
+
         break;
 
 

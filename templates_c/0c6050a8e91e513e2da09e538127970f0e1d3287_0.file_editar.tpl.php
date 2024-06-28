@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 5.3.1, created on 2024-06-28 09:39:41
+/* Smarty version 5.3.1, created on 2024-06-28 21:33:05
   from 'file:noticias/editar.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.3.1',
-  'unifunc' => 'content_667e68bd3534f6_72706801',
+  'unifunc' => 'content_667f0ff1c16d30_27306895',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0c6050a8e91e513e2da09e538127970f0e1d3287' => 
     array (
       0 => 'noticias/editar.tpl',
-      1 => 1719560375,
+      1 => 1719603182,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_667e68bd3534f6_72706801 (\Smarty\Template $_smarty_tpl) {
+function content_667f0ff1c16d30_27306895 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/MEGAMEDIA/templates/noticias';
 ?><head>
     <?php echo '<script'; ?>
@@ -29,6 +29,38 @@ $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/MEGAMEDIA/template
     <?php echo '<script'; ?>
  type="text/javascript">
         bkLib.onDomLoaded(nicEditors.allTextAreas)
+
+        function validarFormulario() {
+            var titulo = document.getElementById('titulo').value.trim();
+            var contenido = nicEditors.findEditor('cuerpo').getContent();
+            var estado = document.getElementById('estado').value.trim();
+
+
+            if (titulo === '' || contenido === '<br>') {
+                $.notify('Por favor, complete todos los campos.', 'warn');
+                event.preventDefault();
+                return false;
+            } else {
+                if (estado !== '0' && estado !== '1') {
+                    $.notify('El campo Estado debe ser 0 o 1', 'warn');
+
+                    event.preventDefault();
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+
+        function verificarEstado(input) {
+            var valor = input.value.trim();
+
+            if (valor !== '0' && valor !== '1') {
+                $.notify('El campo Estado debe ser 0 o 1', 'warn');
+                document.getElementById('estado').value = '';
+            }
+        }
     <?php echo '</script'; ?>
 >
 
@@ -70,17 +102,17 @@ $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/MEGAMEDIA/template
         </div>
         <div class="entrada">
             <input type="text" id="estado" name="estado" value="<?php echo $_smarty_tpl->getValue('noticia')['ESTADO'];?>
-">
+" oninput="verificarEstado(this)">
         </div>
 
-  
+
 
 
         <div class="acciones">
-            <button class="save_btn" type="submit" onclick="">Guardar</button>
+            <button class="save_btn" type="submit" onclick="validarFormulario()">Guardar</button>
         </div>
     </form>
-   
+
 
 
 </div><?php }
