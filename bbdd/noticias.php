@@ -34,7 +34,7 @@ function nueva_noticia($conexionBD, $data)
     if (empty($data['id'])) {
         $query = "INSERT INTO NOTICIA (TITULO, CUERPO, ESTADO) VALUES (?,?,?) ";
         $stmt = $conexionBD->prepare($query);
-        $stmt->bind_param("ss", $data['titulo'], $data['cuerpo'], $data['estado']);
+        $stmt->bind_param("sss", $data['titulo'], $data['cuerpo'], $data['estado']);
     } else {
         $query = "UPDATE NOTICIA SET TITULO = ?, CUERPO = ?, ESTADO = ? WHERE ID_NOTICIA = ?";
         $stmt = $conexionBD->prepare($query);
