@@ -1,0 +1,75 @@
+* {
+    font-family: "Open Sans", sans-serif;
+}
+
+
+body {
+    background-image: linear-gradient(259deg, transparent 0%, transparent 8%, rgba(80, 196, 255, 0.05) 8%, rgba(80, 196, 255, 0.05) 46%, transparent 46%, transparent 100%), linear-gradient(219deg, transparent 0%, transparent 21%, rgba(80, 196, 255, 0.05) 21%, rgba(80, 196, 255, 0.05) 53%, transparent 53%, transparent 100%), linear-gradient(400deg, transparent 0%, transparent 35%, rgba(80, 196, 255, 0.05) 35%, rgba(80, 196, 255, 0.05) 91%, transparent 91%, transparent 100%), linear-gradient(202deg, rgb(255, 255, 255), rgb(255, 255, 255));
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+html {
+    height: 100%;
+}
+
+
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    width: 30%;
+    /* adjust the width to your liking */
+    margin: 40px auto;
+    /* center the form */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 90%;
+    height: 30px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button[type="submit"] {
+    width: 95%;
+    height: 50px;
+    background-color: #4CAF50;
+    /* green background */
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+button[type="submit"]:hover {
+    background-color: #3e8e41;
+    /* darker green on hover */
+
+}
+
+.error {
+    text-align: center;
+    color: red;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
