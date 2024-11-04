@@ -5,7 +5,7 @@ require_once "bbdd/conexion.php";
 function total_noticias($conexionBD)
 {
     $resultado = [];
-    $query = "SELECT * FROM NOTICIA";
+    $query = "Call totalNoticias();";
     $result = $conexionBD->query($query);
 
     if ($result) {
@@ -20,7 +20,7 @@ function total_noticias($conexionBD)
 
 function obtenerNoticia($conexionBD, $id)
 {
-    $query = "SELECT * FROM NOTICIA WHERE ID_NOTICIA =" . $id;
+    $query = "Call getNoticiaPrensa(".$id.");";
     $stmt = $conexionBD->prepare($query);
     //$stmt->bind_param("i", $id);
     $stmt->execute();
@@ -32,11 +32,11 @@ function obtenerNoticia($conexionBD, $id)
 function nueva_noticia($conexionBD, $data)
 {
     if (empty($data['id'])) {
-        $query = "INSERT INTO NOTICIA (TITULO, CUERPO, ESTADO) VALUES (?,?,?) ";
+        $query = "Call nuevaNoticia(?,?,?);";
         $stmt = $conexionBD->prepare($query);
         $stmt->bind_param("sss", $data['titulo'], $data['cuerpo'], $data['estado']);
     } else {
-        $query = "UPDATE NOTICIA SET TITULO = ?, CUERPO = ?, ESTADO = ? WHERE ID_NOTICIA = ?";
+        $query = "Call actualizaNoticia(?,?,?,?)";
         $stmt = $conexionBD->prepare($query);
         $stmt->bind_param("sssi", $data['titulo'], $data['cuerpo'],$data['estado'], $data['id']);
     }
@@ -46,7 +46,7 @@ function nueva_noticia($conexionBD, $data)
 }
 
 function borrarNoticia($conexionBD, $id) {
-    $query = "UPDATE NOTICIA SET ESTADO = 0 WHERE ID_NOTICIA = ?";
+    $query = "Call borraNoticias(?);";
     $stmt = $conexionBD->prepare($query);
     $stmt->bind_param("i", $id);
     $stmt->execute();
@@ -58,7 +58,7 @@ function borrarNoticia($conexionBD, $id) {
 function total_noticias_publicas($conexionBD)
 {
     $resultado = [];
-    $query = "SELECT * FROM NOTICIA WHERE ESTADO = 1";
+    $query = "call getNoticias(); ";
     $result = $conexionBD->query($query);
     if ($result) {
         while ($row = $result->fetch_assoc()) {
@@ -73,7 +73,7 @@ function total_noticias_publicas($conexionBD)
 
 function obtenerNoticia_publica($conexionBD, $id)
 {
-    $query = "SELECT * FROM NOTICIA WHERE ID_NOTICIA =" . $id . " AND ESTADO = 1" ;
+    $query = "Call getNoticiaPublica(".$id .");" ;
     $stmt = $conexionBD->prepare($query);
     $stmt->execute();
     $resultado = $stmt->get_result()->fetch_assoc();

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 5.3.1, created on 2024-06-28 21:38:54
+/* Smarty version 5.3.1, created on 2024-07-31 02:29:06
   from 'file:index.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.3.1',
-  'unifunc' => 'content_667f114e141f86_01428992',
+  'unifunc' => 'content_66a985528f1237_08723412',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f89cba147a9448c70b5710e37d331fefcbdbaf8f' => 
     array (
       0 => 'index.tpl',
-      1 => 1719603504,
+      1 => 1722385722,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_667f114e141f86_01428992 (\Smarty\Template $_smarty_tpl) {
+function content_66a985528f1237_08723412 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/MEGAMEDIA/templates';
 ?><body>
     <section id="navbar">
@@ -37,6 +37,8 @@ $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/MEGAMEDIA/template
             </div>
             <div class="endnavbar">
                 <ul>
+                    <?php echo $_smarty_tpl->getValue('username');?>
+
                     <li><a href="index.php?action=logout"><i class="fa-solid fa-right-from-bracket"></i></a></li>
                 </ul>
             </div>

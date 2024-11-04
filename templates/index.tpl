@@ -13,6 +13,7 @@
             </div>
             <div class="endnavbar">
                 <ul>
+                    {$username}
                     <li><a href="index.php?action=logout"><i class="fa-solid fa-right-from-bracket"></i></a></li>
                 </ul>
             </div>

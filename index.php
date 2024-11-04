@@ -72,6 +72,7 @@ switch ($action) {
         $smarty->assign('noticias', $noticias);
         $smarty->assign('titulo_navegador', 'MEDIA');
         $smarty->assign('content_template', 'templates/noticias/inicio.tpl');
+        $smarty-> assign ('username', $_SESSION['user_name']);
         $smarty->display('header.tpl');
         $smarty->display('index.tpl');
         break;
@@ -165,6 +166,7 @@ switch ($action) {
 
             if ($user) {
                 $_SESSION['user_id'] = $user['ID_USUARIO'];
+                $_SESSION['user_name'] = $user['NOMBRE'];
 
 
                 header('Location: index.php?action=inicio');
@@ -188,10 +190,12 @@ switch ($action) {
 
         $smarty->assign('content_template', 'templates/noticias/inicio.tpl');
 
+        
         break;
 
 
 }
+
 
 //$smarty->display('header.tpl');
 //$smarty->display('index.tpl');
